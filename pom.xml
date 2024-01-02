@@ -1,3 +1,4 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
@@ -15,7 +16,16 @@
     <!--  PROPERTIES - START  -->
     <properties>
         <java.version>11</java.version>
-        <!--  New adding  -->
+
+        <!-- New adding -->
+        <bootstrap.version>4.0.0-2</bootstrap.version>
+        <webjars-locator.version>0.30</webjars-locator.version>
+        <lombok.version>1.18.2</lombok.version>
+        <commons-validator.version>1.6</commons-validator.version>
+
+
+
+
         <bootstrap.version>4.0.0-2</bootstrap.version>
         <webjars-locator.version>0.30</webjars-locator.version>
         <lombok.version>1.18.2</lombok.version>
@@ -24,6 +34,7 @@
         <maven.compiler.target>16</maven.compiler.target>
     </properties>
     <!--  PROPERTIES - END  -->
+    <!--  DEPENDENCIES - START  -->
     <!--  DEPENDENCIES - START  -->
     <dependencies>
         <dependency>
@@ -34,20 +45,8 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!--  spring-boot-starter-jdbc  -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
-        </dependency>
-        <!--  Oracle JDBC driver (for Java 11 it's ojdbc10  -->
-        <dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>ojdbc10</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>C:/ProgramyNumeryczne/OracleJDBCdriver/ojdbc10.jar</systemPath>
-        </dependency>
-        <!--  Spring Security - start  -->
+
+        <!-- Usuń jedną z poniższych sekcji spring-boot-starter-security -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
@@ -57,21 +56,53 @@
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--  Spring Security - end  -->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        <!--  Oracle JDBC driver (for Java 11 it's ojdbc10) -->
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc10</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>C:/ProgramyNumeryczne/OracleJDBCdriver/ojdbc10.jar</systemPath>
+        </dependency>
+
+        <!-- Spring Security - start  -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--  New adding start  -->
+
+        <!-- New adding start -->
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>bootstrap</artifactId>
             <version>${bootstrap.version}</version>
         </dependency>
         <dependency>
-            ...
+            <groupId>org.webjars</groupId>
+            <artifactId>webjars-locator</artifactId>
+            <version>${webjars-locator.version}</version>
         </dependency>
+
+
+
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>${bootstrap.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>webjars-locator</artifactId>
+            <version>${webjars-locator.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>commons-validator</groupId>
             <artifactId>commons-validator</artifactId>
@@ -83,7 +114,11 @@
             <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
-        <!--  New adding end  -->
+        <!-- New adding end -->
+
+
+
     </dependencies>
     <!--  DEPENDENCIES - END  -->
+
 </project>
