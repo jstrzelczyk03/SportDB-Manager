@@ -1,4 +1,5 @@
 package bdbt_bada_project.SpringApplication;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,6 +8,7 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Configuration
 public class AppController implements WebMvcConfigurer {
@@ -53,6 +55,17 @@ public class AppController implements WebMvcConfigurer {
     @RequestMapping(value={"/main_user"})
     public String showUserPage(Model model) {
         return "user/main_user";
+    }
+
+    @Autowired
+    private PocztyDAO dao;
+
+    @RequestMapping("/")
+    public String viewHomePage(Model model){
+        /* Import java.util.List */
+        List<Poczta> listPoczta = dao.list();
+        model.addAttribute("listPoczta", listPoczta);
+        return "index";
     }
 
 
