@@ -14,13 +14,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser("user")
-                .password("user")
-                .roles("USER")
+                .withUser("administrator")
+                .password("administrator")
+                .roles("ADMINISTRATOR")
                 .and()
-                .withUser("admin")
-                .password("admin")
-                .roles("ADMIN");
+                .withUser("trener")
+                .password("trener")
+                .roles("TRENER")
+                .and()
+                .withUser("zawodnik")
+                .password("zawodnik")
+                .roles("ZAWODNIK");
     }
     @Bean
     public PasswordEncoder getPasswordEncoder() { return NoOpPasswordEncoder.getInstance();
@@ -32,8 +36,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/", "/index").permitAll()
                 .antMatchers("/resources/static/**").permitAll()
                 .antMatchers("/main").authenticated()
-                .antMatchers("/main_admin").access("hasRole('ADMIN')")
-                .antMatchers("/main_user").access("hasRole('USER')")
+                .antMatchers("/poczty").authenticated()
+                .antMatchers("/main_administrator").access("hasRole('ADMINISTRATOR')")
+                .antMatchers("/main_trener").access("hasRole('TRENER')")
+                .antMatchers("/main_zawodnik").access("hasRole('ZAWODNIK')")
                 .and()
                 .formLogin()
                 .loginPage("/login")
@@ -48,4 +54,3 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     }
 }
-
