@@ -45,7 +45,7 @@ public class AppController implements WebMvcConfigurer {
             }
             else if
             (request.isUserInRole
-                    ("ZAWODNIK")) {
+                            ("ZAWODNIK")) {
                 return "redirect:/main_zawodnik";
             }
             else
@@ -78,6 +78,7 @@ public class AppController implements WebMvcConfigurer {
         model.addAttribute("listPoczta", listPoczta);
         return "index";
     }
+    //hmm
 
 
 }
