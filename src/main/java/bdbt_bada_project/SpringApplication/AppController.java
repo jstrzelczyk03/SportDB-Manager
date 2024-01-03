@@ -67,10 +67,6 @@ public class AppController implements WebMvcConfigurer {
     public String showZawodnikPage(Model model) {
         return "zawodnik/main_zawodnik";
     }
-    @RequestMapping(value={"/main_cholibka"})
-    public String showCholibkaPage(Model model) {
-        return "cholibka/main_cholibka";
-    }
 
     @Autowired
     private PocztyDAO dao;
