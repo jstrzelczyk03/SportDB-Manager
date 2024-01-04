@@ -1,80 +1,107 @@
 <!DOCTYPE HTML>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 
 <head>
-    <meta charset="UTF-8"/>
-    <title>Strona Powitalna</title>
-
+    <meta charset="UTF-8">
+    <title>Strona startowa</title>
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
-
 </head>
+<body>
+<div class="container text-center">
+    <div><h1>Witaj na naszej stronie</h1></div>
 
-
-<body th:style="'background: url(\'' + @{https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D}
-+ '\') no-repeat center center fixed; background-size: cover; color: white'">
-
-<!--<style th:inline="text">-->
-<!--    body{-->
-<!--        background: url([[@{/assets/img/img.png}]])-->
-<!--        no-repeat center center fixed;-->
-<!--    }-->
-<!--</style>-->
-
-
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
-    <div class="container">
-        <a class="navbar-brand" href="/">Klub Lekkoatletyczny</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/main}">Main</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/main}">Login</a></a>
-                </li>
-
-            </ul>
-        </div>
+    <div class="p-2">
+        <a class="h2" th:href="@{/dyscypliny}">Dyscypliny</a>
     </div>
-</nav>
 
-
-<!--Using images in page    -->
-<!-- <img th:src="@{/assets/img/img.png}" alt="Image" class="img-fluid"> -->
-
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 mt-5">
-
-            <label style="font-size:30px">Witaj na stronie Klubu Lekkoatletycznego!</label>
-            <div style="font-size:20px">Jeśli chcesz się zalogować, kliknij <a th:href="@{/main}"><b>tutaj</b></a>
-                lub w prawym górnym rogu.
-            </div>
-
-        </div>
+    <div class="p-2">
+        <a class="h2" th:href="@{/dyscypliny/nowe}">Dodaj dyscypline</a>
     </div>
+
 </div>
 
-
-<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
-<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 
 </body>
 </html>
 
+
+
+<!--<!DOCTYPE HTML>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+
+<!--<head>-->
+<!--    <meta charset="UTF-8"/>-->
+<!--    <title>Strona Powitalna</title>-->
+
+<!--    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>-->
+
+<!--</head>-->
+
+
+<!--<body th:style="'background: url(\'' + @{https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D}-->
+<!--+ '\') no-repeat center center fixed; background-size: cover;'">-->
+
+<!--&lt;!&ndash;<style th:inline="text">&ndash;&gt;-->
+<!--&lt;!&ndash;    body{&ndash;&gt;-->
+<!--&lt;!&ndash;        background: url([[@{/assets/img/img.png}]])&ndash;&gt;-->
+<!--&lt;!&ndash;        no-repeat center center fixed;&ndash;&gt;-->
+<!--&lt;!&ndash;    }&ndash;&gt;-->
+<!--&lt;!&ndash;</style>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash; Navigation &ndash;&gt;-->
+<!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">-->
+<!--    <div class="container">-->
+<!--        <a class="navbar-brand" href="/">Klub Lekkoatletyczny</a>-->
+<!--        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"-->
+<!--                aria-controls="navbarResponsive"-->
+<!--                aria-expanded="false" aria-label="Toggle navigation">-->
+<!--            <span class="navbar-toggler-icon"></span>-->
+<!--        </button>-->
+<!--        <div class="collapse navbar-collapse" id="navbarResponsive">-->
+<!--            <ul class="navbar-nav ml-auto">-->
+
+<!--                <li class="nav-item active">-->
+<!--                    <a class="nav-link" href="#">Home-->
+<!--                        <span class="sr-only">(current)</span>-->
+<!--                    </a>-->
+<!--                </li>-->
+
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" th:href="@{/main}">Main</a>-->
+<!--                </li>-->
+
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" th:href="@{/main}">Login</a></a>-->
+<!--                </li>-->
+
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</nav>-->
+
+
+<!--&lt;!&ndash;Using images in page    &ndash;&gt;-->
+<!--&lt;!&ndash; <img th:src="@{/assets/img/img.png}" alt="Image" class="img-fluid"> &ndash;&gt;-->
+
+
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--        <div class="col-md-10 mt-5">-->
+
+<!--            <label style="font-size:30px">Witaj na stronie Klubu Lekkoatletycznego!</label>-->
+<!--            <div style="font-size:20px">Jeśli chcesz się zalogować, kliknij <a th:href="@{/main}"><b>tutaj</b></a>-->
+<!--                lub w prawym górnym rogu.-->
+<!--            </div>-->
+
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+<!--<script th:src="@{/webjars/jquery/jquery.min.js}"></script>-->
+<!--<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>-->
+<!--<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>-->
+
+<!--</body>-->
+<!--</html>-->
