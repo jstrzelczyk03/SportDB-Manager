@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Dyscyplin</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css} "/>"
+</head>
+<body>
+<div class="container text-center">
+    <div><h1>Lista Dyscyplin</h1> </div>
+    <div>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+            <th>Numer Dyscypliny</th>
+            <th>Nazwa Dyscypliny</th>
+            <th>Kategoria</th>
+            <th>Opis</th>
+            </thead>
+            <tbody>
+            <th:block th:each="dyscyplina : ${listaDyscyplin}">
+                <tr>
+                  <td>[[${dyscyplina.nr_dyscypliny}]]</td>
+                    <td>[[${dyscyplina.nazwa_dyscypliny}]]</td>
+                    <td>[[${dyscyplina.kategoria}]]</td>
+                    <td>[[${dyscyplina.opis}]]</td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>

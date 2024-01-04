@@ -15,8 +15,8 @@ public class DyscyplinaKontroler {
 
     @GetMapping("/dyscypliny")
     public String listaDyscyplin(Model model){
-        List<Category> listaDyscyplin = repo.findAll();
-        model.addAttribute("listaDyscypplin", listaDyscyplin);
+        List<Dyscyplina> listaDyscyplin = repo.findAll();
+        model.addAttribute("listaDyscyplin", listaDyscyplin);
 
         return "dyscypliny";
     }

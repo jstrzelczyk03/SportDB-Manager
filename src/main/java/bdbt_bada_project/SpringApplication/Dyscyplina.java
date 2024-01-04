@@ -6,6 +6,7 @@ import lombok.Getter;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "Dyscypliny")
 public class Dyscyplina {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
