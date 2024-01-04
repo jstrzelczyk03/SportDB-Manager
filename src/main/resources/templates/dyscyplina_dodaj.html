@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodaj nową dyscyplinę</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+</head>
+<body>
+<div class="container text-center">
+    <div><h1>Dodaj nową dyscyplinę</h1> </div>
+    <form th:action="@{/dyscypliny/zapisz}" th:object="${dyscyplina}" method="post" style="max-width: 500px; margin: 0 auto">
+        <div class="m-3">
+            <div class="form-group row">
+                <label class="col-form-label col-sm-4" for="nazwa_dyscypliny">Nazwa Dyscypliny: </label>
+                <div class="col-sm-8">
+                    <input type="text" th:field="*{nazwa_dyscypliny}" id="nazwa_dyscypliny" class="form-control" required/>
+                </div>
+            </div>
+            <div class="m-3">
+                <div class="form-group row">
+                    <label class="col-form-label col-sm-4" for="kategoria">Kategoria: </label>
+                    <div class="col-sm-8">
+                        <select th:field="*{kategoria}" id="kategoria" class="form-control" required>
+                            <option value="">Wybierz kategorię</option>
+                            <option value="Biegi">Biegi</option>
+                            <option value="Skoki">Skoki</option>
+                            <option value="Rzuty">Rzuty</option>
+                            <option value="Chod">Chod</option>
+                            <option value="Wieloboj">Wieloboj</option>
+                            <!-- Dodaj inne opcje zgodnie z potrzebami -->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="m-3">
+                <div class="form-group row">
+                    <label class="col-form-label col-sm-4" for="opis">Opis: </label>
+                    <div class="col-sm-8">
+                        <input type="text" th:field="*{opis}" id="opis" class="form-control" required/>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center p-3">
+                <button type="submit" class="btn btn-primary">Zapisz</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+</body>
+</html>
