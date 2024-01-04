@@ -17,7 +17,6 @@ public class AppController implements WebMvcConfigurer {
         registry.addViewController("/").setViewName("index");
         registry.addViewController("/main").setViewName("main");
         registry.addViewController("/login").setViewName("login");
-        registry.addViewController("/poczty").setViewName("poczty");
 
         registry.addViewController("/main_administrator").setViewName("administrator/main_administrator");
         registry.addViewController("/main_trener").setViewName("trener/main_trener");
@@ -67,18 +66,6 @@ public class AppController implements WebMvcConfigurer {
     public String showZawodnikPage(Model model) {
         return "zawodnik/main_zawodnik";
     }
-
-    @Autowired
-    private PocztyDAO dao;
-
-    @RequestMapping("/")
-    public String viewHomePage(Model model){
-        /* Import java.util.List */
-        List<Poczta> listPoczta = dao.list();
-        model.addAttribute("listPoczta", listPoczta);
-        return "index";
-    }
-
 
 
 }
