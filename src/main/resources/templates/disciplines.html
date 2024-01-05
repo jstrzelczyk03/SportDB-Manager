@@ -17,12 +17,12 @@
             <th>Opis</th>
             </thead>
             <tbody>
-            <th:block th:each="dyscyplina : ${listaDyscyplin}">
+            <th:block th:each="discipline : ${disciplinesList}">
                 <tr>
-                  <td>[[${dyscyplina.nr_dyscypliny}]]</td>
-                    <td>[[${dyscyplina.nazwa_dyscypliny}]]</td>
-                    <td>[[${dyscyplina.kategoria}]]</td>
-                    <td>[[${dyscyplina.opis}]]</td>
+                  <td>[[${discipline.disciplineId}]]</td>
+                    <td>[[${discipline.disciplineName}]]</td>
+                    <td>[[${discipline.category}]]</td>
+                    <td>[[${discipline.description}]]</td>
                 </tr>
             </th:block>
             </tbody>

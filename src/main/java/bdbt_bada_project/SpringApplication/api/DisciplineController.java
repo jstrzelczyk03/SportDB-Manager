@@ -1,0 +1,46 @@
+package bdbt_bada_project.SpringApplication.api;
+
+import bdbt_bada_project.SpringApplication.entity.Discipline;
+import bdbt_bada_project.SpringApplication.repository.DisciplineRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
+
+@Controller
+@RequiredArgsConstructor
+public class DisciplineController {
+
+    private final DisciplineRepository repo;
+
+    @GetMapping("/disciplines")
+    public String disciplinesList(Model model){
+        List<Discipline> disciplinesList = repo.findAll();
+        model.addAttribute("disciplinesList", disciplinesList);
+        return "disciplines";
+    }
+
+//    @GetMapping("/disciplines/add")
+//    public String showDisciplineNewForm(Model model){
+//        model.addAttribute("discipline", new Discipline());
+//        return "disciplineAdd";
+//    }
+
+    @GetMapping("/disciplines/add")
+    public String showDisciplineNewForm(@ModelAttribute("discipline") Discipline discipline, Model model){
+        model.addAttribute("discipline", discipline);
+        return "disciplineAdd";
+    }
+
+
+    @PostMapping("/disciplines/save")
+    public String saveDiscipline(Discipline discipline){
+        repo.save(discipline);
+        return "redirect:/disciplines";
+    }
+
+}
