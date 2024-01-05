@@ -18,7 +18,7 @@ import javax.persistence.*;
 public class Discipline {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "NR_DYSCYPLINY")
+    @Column(name = "NR_DYSCYPLINY", nullable = false)
     private Integer disciplineId;
 
     @Column(name = "NAZWA_DYSCYPLINY", nullable = false)

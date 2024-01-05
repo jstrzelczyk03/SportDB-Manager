@@ -6,7 +6,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -24,18 +23,11 @@ public class DisciplineController {
         return "disciplines";
     }
 
-//    @GetMapping("/disciplines/add")
-//    public String showDisciplineNewForm(Model model){
-//        model.addAttribute("discipline", new Discipline());
-//        return "disciplineAdd";
-//    }
-
     @GetMapping("/disciplines/add")
-    public String showDisciplineNewForm(@ModelAttribute("discipline") Discipline discipline, Model model){
-        model.addAttribute("discipline", discipline);
+    public String showDisciplineNewForm(Model model){
+        model.addAttribute("discipline", new Discipline());
         return "disciplineAdd";
     }
-
 
     @PostMapping("/disciplines/save")
     public String saveDiscipline(Discipline discipline){
