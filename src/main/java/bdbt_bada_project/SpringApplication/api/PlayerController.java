@@ -1,6 +1,10 @@
 package bdbt_bada_project.SpringApplication.api;
 
+import bdbt_bada_project.SpringApplication.entity.Address;
+import bdbt_bada_project.SpringApplication.entity.Discipline;
 import bdbt_bada_project.SpringApplication.entity.Player;
+import bdbt_bada_project.SpringApplication.repository.AddressRepository;
+import bdbt_bada_project.SpringApplication.repository.DisciplineRepository;
 import bdbt_bada_project.SpringApplication.repository.PlayerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -15,6 +19,8 @@ import java.util.List;
 public class PlayerController {
 
     private final PlayerRepository playerRepo;
+    private final AddressRepository addressRepo;
+    private final DisciplineRepository disciplineRepo;
 
     @GetMapping("/players")
     public String playersList(Model model){
@@ -25,7 +31,11 @@ public class PlayerController {
 
     @GetMapping("/players/add")
     public String showPlayerNewForm(Model model){
+        List<Address> addressList = addressRepo.findAll();
+        List<Discipline> disciplineList = disciplineRepo.findAll();
         model.addAttribute("player", new Player());
+        model.addAttribute("addressList", addressList);
+        model.addAttribute("disciplineList", disciplineList);
         return "playerAdd";
     }
 

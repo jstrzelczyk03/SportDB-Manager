@@ -42,6 +42,14 @@ public class Player {
     @Column(name = "EMAIL")
     private String email;
 
+    @ManyToOne
+    @JoinColumn(name = "NR_ADRESU", nullable = false)
+    private Address address;
+
+    @ManyToOne
+    @JoinColumn(name = "NR_DYSCYPLINY", nullable = false)
+    private Discipline discipline;
+
 
 
     @Override
