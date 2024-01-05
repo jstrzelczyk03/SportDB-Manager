@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Zawodników</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css} "/>"
+</head>
+<body>
+<div class="container text-center">
+    <div><h1>Lista Zawodników</h1> </div>
+    <div>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+            <th>Numer Zawodnika</th>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Data urodzenia</th>
+            <th>Płeć</th>
+            <th>Data dołączenia</th>
+            <th>Telefon</th>
+            <th>Email</th>
+            <th>Numer adresu</th>
+            <th>Numer dyscypliny</th>
+            </thead>
+            <tbody>
+            <th:block th:each="player : ${playersList}">
+                <tr>
+                    <td>[[${player.playerId}]]</td>
+                    <td>[[${player.name}]]</td>
+                    <td>[[${player.surname}]]</td>
+                    <td>[[${player.birthDate}]]</td>
+                    <td>[[${player.sex}]]</td>
+                    <td>[[${player.joinDate}]]</td>
+                    <td>[[${player.phone}]]</td>
+                    <td>[[${player.email}]]</td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>

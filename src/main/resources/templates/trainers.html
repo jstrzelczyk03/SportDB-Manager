@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Trenerów</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css} "/>"
+</head>
+<body>
+<div class="container text-center">
+    <div><h1>Lista Trenerów</h1> </div>
+    <div>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+            <th>Numer Trenera</th>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Data urodzenia</th>
+            <th>Pesel</th>
+            <th>Płeć</th>
+            <th>Numer konta</th>
+            <th>Data zatrudnienia</th>
+            <th>Telefon</th>
+            <th>Email</th>
+            <th>Numer adresu</th>
+            <th>Numer dyscypliny</th>
+            </thead>
+            <tbody>
+            <th:block th:each="trainer : ${trainersList}">
+                <tr>
+                    <td>[[${trainer.trainerId}]]</td>
+                    <td>[[${trainer.name}]]</td>
+                    <td>[[${trainer.surname}]]</td>
+                    <td>[[${trainer.birthDate}]]</td>
+                    <td>[[${trainer.pesel}]]</td>
+                    <td>[[${trainer.sex}]]</td>
+                    <td>[[${trainer.accountNumber}]]</td>
+                    <td>[[${trainer.hireDate}]]</td>
+                    <td>[[${trainer.phone}]]</td>
+                    <td>[[${trainer.email}]]</td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>
