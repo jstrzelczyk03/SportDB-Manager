@@ -14,11 +14,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AddressController {
 
-    private final AddressRepository repo;
+    private final AddressRepository addressRepo;
 
     @GetMapping("/addresses")
     public String addressesList(Model model){
-        List<Address> addressesList = repo.findAll();
+        List<Address> addressesList = addressRepo.findAll();
         model.addAttribute("addressesList", addressesList);
         return "addresses";
     }
@@ -33,7 +33,7 @@ public class AddressController {
 
     @PostMapping("/addresses/save")
     public String saveDiscipline(Address address){
-        repo.save(address);
+        addressRepo.save(address);
         return "redirect:/addresses";
     }
 

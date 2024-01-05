@@ -8,7 +8,7 @@
 <body>
 <div class="container text-center">
     <div><h1>Dodaj nową dyscyplinę</h1> </div>
-    <form th:action="@{/place/save}" th:object="${place}" method="post" style="max-width: 500px; margin: 0 auto">
+    <form th:action="@{/places/save}" th:object="${place}" method="post" style="max-width: 500px; margin: 0 auto">
         <div class="m-3">
             <div class="form-group row">
                 <label class="col-form-label col-sm-4" for="placeName">Nazwa Obiektu: </label>
@@ -40,20 +40,29 @@
                     <input type="text" th:field="*{toiletNumber}" id="toiletNumber" class="form-control" required/>
                 </div>
             </div>
-
             <div class="m-3">
                 <div class="form-group row">
                     <label class="col-form-label col-sm-4" for="roof">Zadaszenie: </label>
                     <div class="col-sm-8">
                         <select th:field="*{roof}" id="roof" class="form-control" required>
-                            <option value="">Wybierz rodzaj zadaszenia</option>
                             <option value="Tak">Tak</option>
                             <option value="Nie">Nie</option>
-                            <!-- Dodaj inne opcje zgodnie z potrzebami -->
                         </select>
                     </div>
                 </div>
             </div>
+
+            <div class="form-group row">
+                <label class="col-form-label col-sm-4" id="addressID" for="addressId">Numer adresu: </label>
+                <div class="col-sm-8">
+                    <select th:field="*{address}" class="form-control" required>
+                        <th:block block th:each="address : ${addressList}">
+                            <option th:text="${address.addressId}" th:value="${address.addressId}"/>
+                        </th:block>
+                    </select>
+                </div>
+            </div>
+
             <div class="text-center p-3">
                 <button type="submit" class="btn btn-primary">Zapisz</button>
             </div>

@@ -18,6 +18,8 @@
             <th>Liczba Szatni</th>
             <th>Liczba toalet</th>
             <th>Zadaszenie</th>
+            <th>Numer Adresu</th>
+            <th>Miasto</th>
             </thead>
             <tbody>
             <th:block th:each="place : ${placesList}">
@@ -29,6 +31,8 @@
                     <td>[[${place.lockerRoomNumber}]]</td>
                     <td>[[${place.toiletNumber}]]</td>
                     <td>[[${place.roof}]]</td>
+                    <td>[[${place.address.addressId}]]</td>
+                    <td>[[${place.address.town}]]</td>
                 </tr>
             </th:block>
             </tbody>

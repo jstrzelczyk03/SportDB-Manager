@@ -40,6 +40,11 @@ public class Place {
     @Column(name = "ZADASZENIE")
     private String roof;
 
+    @ManyToOne
+    @JoinColumn(name = "NR_ADRESU")
+    private Address address;
+
+
     @Override
     public boolean equals(Object o){
         if(this == o) return true;

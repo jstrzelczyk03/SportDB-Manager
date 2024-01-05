@@ -14,11 +14,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class DisciplineController {
 
-    private final DisciplineRepository repo;
+    private final DisciplineRepository disciplineRepo;
 
     @GetMapping("/disciplines")
     public String disciplinesList(Model model){
-        List<Discipline> disciplinesList = repo.findAll();
+        List<Discipline> disciplinesList = disciplineRepo.findAll();
         model.addAttribute("disciplinesList", disciplinesList);
         return "disciplines";
     }
@@ -31,7 +31,7 @@ public class DisciplineController {
 
     @PostMapping("/disciplines/save")
     public String saveDiscipline(Discipline discipline){
-        repo.save(discipline);
+        disciplineRepo.save(discipline);
         return "redirect:/disciplines";
     }
 

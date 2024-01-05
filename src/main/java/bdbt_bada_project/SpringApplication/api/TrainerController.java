@@ -14,11 +14,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class TrainerController {
 
-    private final TrainerRepository repo;
+    private final TrainerRepository trainerRepo;
 
     @GetMapping("/trainers")
     public String trainersList(Model model){
-        List<Trainer> trainersList = repo.findAll();
+        List<Trainer> trainersList = trainerRepo.findAll();
         model.addAttribute("trainersList", trainersList);
         return "trainers";
     }
@@ -31,7 +31,7 @@ public class TrainerController {
 
     @PostMapping("/trainers/save")
     public String saveTrainer(Trainer trainer){
-        repo.save(trainer);
+        trainerRepo.save(trainer);
         return "redirect:/trainers";
     }
 

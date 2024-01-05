@@ -14,11 +14,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PlayerController {
 
-    private final PlayerRepository repo;
+    private final PlayerRepository playerRepo;
 
     @GetMapping("/players")
     public String playersList(Model model){
-        List<Player> playersList = repo.findAll();
+        List<Player> playersList = playerRepo.findAll();
         model.addAttribute("playersList", playersList);
         return "players";
     }
@@ -31,7 +31,7 @@ public class PlayerController {
 
     @PostMapping("/players/save")
     public String savePlayer(Player player){
-        repo.save(player);
+        playerRepo.save(player);
         return "redirect:/players";
     }
 
