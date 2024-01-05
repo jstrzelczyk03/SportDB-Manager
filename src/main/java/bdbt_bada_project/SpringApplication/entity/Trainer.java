@@ -30,7 +30,7 @@ public class Trainer {
     @Column(name = "DATA_URODZENIA", nullable = false)
     private String birthDate;
 
-    @Column(name = "PESEL", nullable = false)
+    @Column(name = "PESEL", nullable = false, length = 11)
     private String pesel;
 
     @Column(name = "PLEC", nullable = false)
@@ -48,6 +48,13 @@ public class Trainer {
     @Column(name = "EMAIL")
     private String email;
 
+    @ManyToOne
+    @JoinColumn(name = "NR_ADRESU", nullable = false)
+    private Address address;
+
+    @ManyToOne
+    @JoinColumn(name = "NR_DYSCYPLINY", nullable = false)
+    private Discipline discipline;
 
 
     @Override

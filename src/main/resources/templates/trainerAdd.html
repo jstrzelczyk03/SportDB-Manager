@@ -70,6 +70,26 @@
                     <input type="text" th:field="*{email}" id="email" class="form-control"/>
                 </div>
             </div>
+            <div class="form-group row">
+                <label class="col-form-label col-sm-4" id="addressID" for="addressId">Numer adresu: </label>
+                <div class="col-sm-8">
+                    <select th:field="*{address}" class="form-control" required>
+                        <th:block block th:each="address : ${addressList}">
+                            <option th:text="${address.addressId}" th:value="${address.addressId}"></option>
+                        </th:block>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label col-sm-4" id="disciplineId" for="disciplineId">Numer dyscypliny: </label>
+                <div class="col-sm-8">
+                    <select th:field="*{discipline}" class="form-control" required>
+                        <th:block block th:each="discipline : ${disciplineList}">
+                            <option th:text="${discipline.disciplineId}" th:value="${discipline.disciplineId}"></option>
+                        </th:block>
+                    </select>
+                </div>
+            </div>
             <div class="text-center p-3">
                 <button type="submit" class="btn btn-primary">Zapisz</button>
             </div>

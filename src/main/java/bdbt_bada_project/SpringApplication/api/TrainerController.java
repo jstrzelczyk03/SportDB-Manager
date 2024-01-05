@@ -1,6 +1,10 @@
 package bdbt_bada_project.SpringApplication.api;
 
+import bdbt_bada_project.SpringApplication.entity.Address;
+import bdbt_bada_project.SpringApplication.entity.Discipline;
 import bdbt_bada_project.SpringApplication.entity.Trainer;
+import bdbt_bada_project.SpringApplication.repository.AddressRepository;
+import bdbt_bada_project.SpringApplication.repository.DisciplineRepository;
 import bdbt_bada_project.SpringApplication.repository.TrainerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -15,6 +19,8 @@ import java.util.List;
 public class TrainerController {
 
     private final TrainerRepository trainerRepo;
+    private final AddressRepository addressRepo;
+    private final DisciplineRepository disciplineRepo;
 
     @GetMapping("/trainers")
     public String trainersList(Model model){
@@ -25,7 +31,11 @@ public class TrainerController {
 
     @GetMapping("/trainers/add")
     public String showTrainerNewForm(Model model){
+        List<Address> addressList = addressRepo.findAll();
+        List<Discipline> disciplineList = disciplineRepo.findAll();
         model.addAttribute("trainer", new Trainer());
+        model.addAttribute("addressList", addressList);
+        model.addAttribute("disciplineList", disciplineList);
         return "trainerAdd";
     }
 
