@@ -15,6 +15,7 @@
             <th>Nazwa Dyscypliny</th>
             <th>Kategoria</th>
             <th>Opis</th>
+            <th></th>
             </thead>
             <tbody>
             <th:block th:each="discipline : ${disciplinesList}">
@@ -23,6 +24,11 @@
                     <td>[[${discipline.disciplineName}]]</td>
                     <td>[[${discipline.category}]]</td>
                     <td>[[${discipline.description}]]</td>
+                    <td>
+                        <a th:href="@{'/disciplines/edit/' + ${discipline.disciplineId}}">Edytuj</a>
+                        &nbsp
+                        <a th:href="@{'/disciplines/delete/' + ${discipline.disciplineId}}">Usuń</a>
+                    </td>
                 </tr>
             </th:block>
             </tbody>

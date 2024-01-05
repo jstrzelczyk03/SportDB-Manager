@@ -7,8 +7,10 @@
 </head>
 <body>
 <div class="container text-center">
-    <div><h1>Dodaj nowy adres</h1> </div>
+    <div th:if="${address.addressId == null}"><h1>Dodaj nowy adres</h1> </div>
+    <div th:unless="${address.addressId == null}"><h1>Edytuj adres</h1> </div>
     <form th:action="@{/addresses/save}" th:object="${address}" method="post" style="max-width: 500px; margin: 0 auto">
+        <input type="hidden" th:field="*{addressId}" th:value="${address.addressId}" />
         <div class="m-3">
             <div class="form-group row">
                 <label class="col-form-label col-sm-4" for="town">Miejscowość: </label>

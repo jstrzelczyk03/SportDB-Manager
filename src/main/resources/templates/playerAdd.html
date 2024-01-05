@@ -7,8 +7,10 @@
 </head>
 <body>
 <div class="container text-center">
-    <div><h1>Dodaj nowego zawodnika</h1> </div>
-    <form th:action="@{/players/save}" th:object="${player}" method="post" style="max-width: 500px; margin: 0 auto">
+    <div th:if="${player.playerId == null}"><h1>Dodaj nowego zawodnika</h1> </div>
+    <div th:unless="${player.playerId == null}"><h1>Edytuj zawodnika</h1> </div>
+    <form th:action="@{/players/save}" th:object="${player}" method="post" style="max-width: 500px; margin: 0 auto">+
+        <input type="hidden" th:field="*{playerId}" th:value="${player.playerId}" />
         <div class="m-3">
             <div class="form-group row">
                 <label class="col-form-label col-sm-4" for="name">Imię: </label>

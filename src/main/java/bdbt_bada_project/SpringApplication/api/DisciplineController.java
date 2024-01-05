@@ -1,11 +1,13 @@
 package bdbt_bada_project.SpringApplication.api;
 
+import bdbt_bada_project.SpringApplication.entity.Address;
 import bdbt_bada_project.SpringApplication.entity.Discipline;
 import bdbt_bada_project.SpringApplication.repository.DisciplineRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -24,9 +26,21 @@ public class DisciplineController {
     }
 
     @GetMapping("/disciplines/add")
-    public String showDisciplineNewForm(Model model){
+    public String showNewDisciplineForm(Model model){
         model.addAttribute("discipline", new Discipline());
         return "disciplineAdd";
+    }
+
+    @GetMapping("/disciplines/edit/{disciplineId}")
+    public String showEditDisciplineForm(@PathVariable("disciplineId") Integer disciplineId, Model model){
+        Discipline discipline = disciplineRepo.findById(disciplineId).get();
+        model.addAttribute("discipline", discipline);
+        return "disciplineAdd";
+    }
+    @GetMapping("/disciplines/delete/{disciplineId}")
+    public String deleteDiscipline(@PathVariable("disciplineId") Integer disciplineId, Model model){
+        disciplineRepo.deleteById(disciplineId);
+        return "redirect:/disciplines";
     }
 
     @PostMapping("/disciplines/save")

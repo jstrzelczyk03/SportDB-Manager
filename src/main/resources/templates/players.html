@@ -21,6 +21,7 @@
             <th>Email</th>
             <th>Numer adresu</th>
             <th>Numer dyscypliny</th>
+            <th></th>
             </thead>
             <tbody>
             <th:block th:each="player : ${playersList}">
@@ -35,6 +36,11 @@
                     <td>[[${player.email}]]</td>
                     <td>[[${player.discipline.disciplineId}]]</td>
                     <td>[[${player.address.addressId}]]</td>
+                    <td>
+                        <a th:href="@{'/players/edit/' + ${player.playerId}}">Edytuj</a>
+                        &nbsp;
+                        <a th:href="@{'/players/delete/' + ${player.playerId}}">Usuń</a>
+                    </td>
                 </tr>
             </th:block>
             </tbody>
