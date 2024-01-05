@@ -1,4 +1,4 @@
-package bdbt_bada_project.SpringApplication;
+package bdbt_bada_project.SpringApplication.api;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +9,7 @@ public class AppController {
     public String viewHomePage(){
         return "index";
     }
+
 }
 
 
