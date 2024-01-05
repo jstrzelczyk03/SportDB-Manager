@@ -33,7 +33,7 @@ public class Address {
     @Column(name = "NR_LOKALU")
     private Integer apartmentNumber;
 
-    @Column(name = "KOD_POCZTOWY")
+    @Column(name = "KOD_POCZTOWY", nullable = false)
     private String zipCode;
     @Override
     public boolean equals(Object o) {

@@ -37,11 +37,11 @@ public class Place {
     @Column(name = "LICZBA_TOALET")
     private Integer toiletNumber;
 
-    @Column(name = "ZADASZENIE")
+    @Column(name = "ZADASZENIE", nullable = false)
     private String roof;
 
     @ManyToOne
-    @JoinColumn(name = "NR_ADRESU")
+    @JoinColumn(name = "NR_ADRESU", nullable = false)
     private Address address;
 
 
