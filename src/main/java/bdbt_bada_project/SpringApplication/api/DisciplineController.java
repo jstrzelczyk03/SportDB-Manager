@@ -24,17 +24,12 @@ public class DisciplineController {
         return "disciplines";
     }
 
-//    @GetMapping("/disciplines/add")
-//    public String showDisciplineNewForm(Model model){
-//        model.addAttribute("discipline", new Discipline());
-//        return "disciplineAdd";
-//    }
-
     @GetMapping("/disciplines/add")
-    public String showDisciplineNewForm(@ModelAttribute("discipline") Discipline discipline, Model model){
-        model.addAttribute("discipline", discipline);
+    public String showDisciplineNewForm(Model model){
+        model.addAttribute("discipline", new Discipline());
         return "disciplineAdd";
     }
+
 
 
     @PostMapping("/disciplines/save")
