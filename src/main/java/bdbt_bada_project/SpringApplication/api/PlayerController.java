@@ -2,7 +2,6 @@ package bdbt_bada_project.SpringApplication.api;
 
 import bdbt_bada_project.SpringApplication.entity.Address;
 import bdbt_bada_project.SpringApplication.entity.Discipline;
-import bdbt_bada_project.SpringApplication.entity.Place;
 import bdbt_bada_project.SpringApplication.entity.Player;
 import bdbt_bada_project.SpringApplication.repository.AddressRepository;
 import bdbt_bada_project.SpringApplication.repository.DisciplineRepository;

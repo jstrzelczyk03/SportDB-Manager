@@ -1,6 +1,5 @@
 package bdbt_bada_project.SpringApplication.api;
 
-import bdbt_bada_project.SpringApplication.entity.Address;
 import bdbt_bada_project.SpringApplication.entity.Discipline;
 import bdbt_bada_project.SpringApplication.repository.DisciplineRepository;
 import lombok.RequiredArgsConstructor;
