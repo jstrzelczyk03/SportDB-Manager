@@ -2,58 +2,111 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Dodaj nowy obiekt</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+    <title>Obiekt</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            background: linear-gradient(to right, #3A3A3A, #455A64);
+        }
+    </style>
 </head>
 <body>
+
+<!--Start Navigation Bar-->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+    <div class="container-fluid">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/index" style="color: #78909C"><strong>Klub Lekkoatletyczny</strong></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/index">Strona Główna</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/contact">Kontakt</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle active" role="button" data-bs-toggle="dropdown">Tabele</a>
+                <ul class="dropdown-menu bg-dark">
+                    <li><a class="dropdown-item" href="/disciplines" style="color: white">Dyscypliny</a></li>
+                    <li><a class="dropdown-item" href="/places" style="color: white">Obiekty</a></li>
+                    <li><a class="dropdown-item" href="/trainers" style="color: white">Trenerzy</a></li>
+                    <li><a class="dropdown-item" href="/players" style="color: white">Zawodnicy</a></li>
+                    <li><a class="dropdown-item" href="/addresses" style="color: white">Adresy</a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <form class="d-flex" method="post" th:action="@{/index}">
+                <li class="nav-item"><a class="nav-link" href="/index" style="color: #78909C">Zalogowany jako <b style="text-transform:capitalize">[[${#httpServletRequest.remoteUser}]]</b></a></li>
+                <button class="btn btn-primary" type="submit" onclick="successfullyLogout()" value="Sign Out">Wyloguj</button>
+            </form>
+        </ul>
+    </div>
+</nav>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom">
+    <div class="container-fluid d-flex justify-content-start align-items-end">
+        <a class="navbar-brand" href="">
+            <img src="https://www.unipile.com/wp-content/uploads/2022/06/logo-facebook-blanc.png.webp" style="width:40px;" class="rounded-0">
+        </a>
+        <a class="navbar-brand" href="">
+            <img src="https://www.unipile.com/wp-content/uploads/2022/11/logo-messenger-blanc.png.webp" style="width:40px;" class="rounded-0">
+        </a>
+        <a class="navbar-brand" href="">
+            <img src="https://www.unipile.com/wp-content/uploads/2022/09/logo-instagram-blanc-1.png.webp" style="width:40px;" class="rounded-0">
+        </a>
+    </div>
+</nav>
+<!--End Navigation Bar-->
+
+<br><br><br>
 <div class="container text-center">
     <div th:if="${place.placeId == null}"><h1>Dodaj nowy obiekt</h1> </div>
     <div th:unless="${place.placeId == null}"><h1>Edytuj obiekt</h1> </div>
-    <form th:action="@{/places/save}" th:object="${place}" method="post" style="max-width: 500px; margin: 0 auto">
-        <input type="hidden" th:field="*{placeId}" th:value="${place.placeId}" />
+    <form th:action="@{/places/save}" th:object="${place}" method="post" style="max-width: 500px; margin: 0 auto; color: white">
+        <input type="hidden" th:field="*{placeId}" th:value="${place.placeId}"/>
         <div class="m-3">
-            <div class="form-group row">
+            <div class="mb-3 row">
                 <label class="col-form-label col-sm-4" for="placeName">Nazwa Obiektu: </label>
                 <div class="col-sm-8">
                     <input type="text" th:field="*{placeName}" id="placeName" class="form-control" required/>
                 </div>
             </div>
-            <div class="form-group row">
+            <div class="mb-3 row">
                 <label class="col-form-label col-sm-4" for="placeName">Powierzchnia: </label>
                 <div class="col-sm-8">
                     <input type="text" th:field="*{area}" id="area" class="form-control" required/>
                 </div>
             </div>
-            <div class="form-group row">
+            <div class="mb-3 row">
                 <label class="col-form-label col-sm-4" for="seatsNumber">Liczba Miejsc: </label>
                 <div class="col-sm-8">
                     <input type="text" th:field="*{seatsNumber}" id="seatsNumber" class="form-control" required/>
                 </div>
             </div>
-            <div class="form-group row">
+            <div class="mb-3 row">
                 <label class="col-form-label col-sm-4" for="lockerRoomNumber">Liczba szatni: </label>
                 <div class="col-sm-8">
                     <input type="text" th:field="*{lockerRoomNumber}" id="lockerRoomNumber" class="form-control"/>
                 </div>
             </div>
-            <div class="form-group row">
+            <div class="mb-3 row">
                 <label class="col-form-label col-sm-4" for="toiletNumber">Liczba toalet: </label>
                 <div class="col-sm-8">
                     <input type="text" th:field="*{toiletNumber}" id="toiletNumber" class="form-control">
                 </div>
             </div>
-            <div class="m-3">
-                <div class="form-group row">
-                    <label class="col-form-label col-sm-4" for="roof">Zadaszenie: </label>
-                    <div class="col-sm-8">
-                        <select th:field="*{roof}" id="roof" class="form-control" required>
-                            <option value="Tak">Tak</option>
-                            <option value="Nie">Nie</option>
-                        </select>
-                    </div>
+            <div class="mb-3 row">
+                <label class="col-form-label col-sm-4" for="roof">Zadaszenie: </label>
+                <div class="col-sm-8">
+                    <select th:field="*{roof}" id="roof" class="form-control" required>
+                        <option value="Tak">Tak</option>
+                        <option value="Nie">Nie</option>
+                    </select>
                 </div>
             </div>
-            <div class="form-group row">
+            <div class="mb-3 row">
                 <label class="col-form-label col-sm-4" id="addressId" for="addressId">Numer adresu: </label>
                 <div class="col-sm-8">
                     <select th:field="*{address}" class="form-control" required>
@@ -68,7 +121,8 @@
             </div>
         </div>
     </form>
-
 </div>
+<br><br><br><br>
+
 </body>
 </html>

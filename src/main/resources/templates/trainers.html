@@ -20,15 +20,28 @@
                 <a class="nav-link" href="/index" style="color: #78909C"><strong>Klub Lekkoatletyczny</strong></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="/index">Strona Główna</a>
+                <a class="nav-link" href="/index">Strona Główna</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/contact">Kontakt</a>
             </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle active" role="button" data-bs-toggle="dropdown">Tabele</a>
+                <ul class="dropdown-menu bg-dark">
+                    <li><a class="dropdown-item" href="/disciplines" style="color: white">Dyscypliny</a></li>
+                    <li><a class="dropdown-item" href="/places" style="color: white">Obiekty</a></li>
+                    <li><a class="dropdown-item" href="/trainers" style="color: white">Trenerzy</a></li>
+                    <li><a class="dropdown-item" href="/players" style="color: white">Zawodnicy</a></li>
+                    <li><a class="dropdown-item" href="/addresses" style="color: white">Adresy</a></li>
+                </ul>
+            </li>
         </ul>
-        <form class="d-flex">
-            <a href="/login" style="font-size: 16px; padding: 10px 20px;" class="btn btn-primary">Zaloguj się</a>
-        </form>
+        <ul class="navbar-nav">
+            <form class="d-flex" method="post" th:action="@{/index}">
+                <li class="nav-item"><a class="nav-link" href="/index" style="color: #78909C">Zalogowany jako <b style="text-transform:capitalize">[[${#httpServletRequest.remoteUser}]]</b></a></li>
+                <button class="btn btn-primary" type="submit" onclick="successfullyLogout()" value="Sign Out">Wyloguj</button>
+            </form>
+        </ul>
     </div>
 </nav>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom">
@@ -46,6 +59,7 @@
 </nav>
 <!--End Navigation Bar-->
 
+<br><br>
 <div class="container mt-3">
     <div class="text-center"><h1>Lista Trenerów</h1> </div>
     <div class="table-responsive">
@@ -89,6 +103,7 @@
         </table>
     </div>
 </div>
+<br><br><br><br>
 
 </body>
 </html>
