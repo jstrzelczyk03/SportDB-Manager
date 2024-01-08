@@ -61,6 +61,7 @@
             <th>Numer Adresu</th>
             <th>Miasto</th>
             <th></th>
+            <th></th>
             </thead>
             <tbody>
             <th:block th:each="place : ${placesList}">
@@ -74,11 +75,8 @@
                     <td>[[${place.roof}]]</td>
                     <td>[[${place.address.addressId}]]</td>
                     <td>[[${place.address.town}]]</td>
-                    <td>
-                        <a th:href="@{'/places/edit/' + ${place.placeId}}">Edytuj</a>
-                        &nbsp;
-                        <a th:href="@{'/places/delete/' + ${place.placeId}}">Usuń</a>
-                    </td>
+                    <td><a class="btn btn-secondary" th:href="@{'/places/edit/' + ${place.placeId}}">Edytuj</a></td>
+                    <td><a class="btn btn-light" th:href="@{'/places/delete/' + ${place.placeId}}">Usuń</a></td>
                 </tr>
             </th:block>
             </tbody>

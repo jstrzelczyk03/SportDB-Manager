@@ -71,6 +71,7 @@
             <th>Numer adresu</th>
             <th>Numer dyscypliny</th>
             <th></th>
+            <th></th>
             </thead>
             <tbody>
             <th:block th:each="trainer : ${trainersList}">
@@ -87,11 +88,8 @@
                     <td>[[${trainer.email}]]</td>
                     <td>[[${trainer.address.addressId}]]</td>
                     <td>[[${trainer.discipline.disciplineId}]]</td>
-                    <td>
-                        <a th:href="@{'/trainers/edit/' + ${trainer.trainerId}}">Edytuj</a>
-                        &nbsp;
-                        <a th:href="@{'/trainers/delete/' + ${trainer.trainerId}}">Usuń</a>
-                    </td>
+                    <td><a class="btn btn-secondary" th:href="@{'/trainers/edit/' + ${trainer.trainerId}}">Edytuj</a></td>
+                    <td><a class="btn btn-light" th:href="@{'/trainers/delete/' + ${trainer.trainerId}}">Usuń</a></td>
                 </tr>
             </th:block>
             </tbody>

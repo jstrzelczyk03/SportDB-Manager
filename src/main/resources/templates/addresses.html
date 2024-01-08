@@ -58,6 +58,7 @@
             <th>Numer lokalu</th>
             <th>Kod Pocztowy</th>
             <th></th>
+            <th></th>
             </thead>
             <tbody>
             <th:block th:each="address : ${addressesList}">
@@ -68,11 +69,8 @@
                     <td>[[${address.houseNumber}]]</td>
                     <td>[[${address.apartmentNumber}]]</td>
                     <td>[[${address.zipCode}]]</td>
-                    <td>
-                        <a th:href="@{'/addresses/edit/' + ${address.addressId}}">Edytuj</a>
-                        &nbsp;
-                        <a th:href="@{'/addresses/delete/' + ${address.addressId}}">Usuń</a>
-                    </td>
+                    <td><a class="btn btn-secondary" th:href="@{'/addresses/edit/' + ${address.addressId}}">Edytuj</a></td>
+                    <td><a class="btn btn-light" th:href="@{'/addresses/delete/' + ${address.addressId}}">Usuń</a></td>
                 </tr>
             </th:block>
             </tbody>

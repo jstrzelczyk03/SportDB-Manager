@@ -63,6 +63,7 @@
                 <th>Numer dyscypliny</th>
                 <th>Numer adresu</th>
                 <th></th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -78,11 +79,8 @@
                     <td>[[${player.email}]]</td>
                     <td>[[${player.discipline.disciplineId}]]</td>
                     <td>[[${player.address.addressId}]]</td>
-                    <td>
-                        <a th:href="@{'/players/edit/' + ${player.playerId}}">Edytuj</a>
-                        &nbsp;
-                        <a th:href="@{'/players/delete/' + ${player.playerId}}">Usuń</a>
-                    </td>
+                    <td><a class="btn btn-secondary" th:href="@{'/players/edit/' + ${player.playerId}}">Edytuj</a></td>
+                    <td><a class="btn btn-light" th:href="@{'/players/delete/' + ${player.playerId}}">Usuń</a></td>
                 </tr>
             </th:block>
             </tbody>
