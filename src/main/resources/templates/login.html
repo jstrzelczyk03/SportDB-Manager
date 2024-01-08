@@ -50,19 +50,19 @@
 
 <div class="container mt-3">
     <h2>Strona logowania</h2>
-    <form action="/login">
+    <form method="post" action="/login">
         <div class="form-floating mb-3 mt-3">
-            <input type="text" class="form-control" id="login" placeholder="Wpisz login" name="login">
+            <input type="text" class="form-control" id="login" placeholder="Wpisz login" name="username" autocomplete="off">
             <label for="login">Login</label>
         </div>
         <div class="form-floating mt-3 mb-3">
-            <input type="text" class="form-control" id="password" placeholder="Wpisz hasło" name="password">
+            <input type="text" class="form-control" id="password" placeholder="Wpisz hasło" name="password" autocomplete="off">
             <label for="password">Hasło</label>
         </div>
         <div th:if="${param.error}" style="color:red; margin-bottom:15px">
             BŁĄD: Niepoprawny login lub hasło!
         </div>
-        <button type="submit" class="btn btn-primary">Zaloguj</button>
+        <button type="submit" class="btn btn-primary" value="Sign In">Zaloguj</button>
     </form>
 </div>
 
