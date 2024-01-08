@@ -12,7 +12,7 @@
         }
         #cardContainer {
             display: flex;
-            justify-content: space-around; /* lub inna wartość, aby dostosować odstępy między kartami */
+            justify-content: space-between; /* lub inna wartość, aby dostosować odstępy między kartami */
         }
     </style>
 </head>
@@ -52,58 +52,56 @@
 </nav>
 <!--End Navigation Bar-->
 
-<div class="container-fluid text-center" style="color: white; background-image: url('https://wallpapercave.com/wp/wp2508257.jpg');height: 35vh; padding-top: 50px;">
+<div class="container-fluid text-center" style="color: white ;height: 35vh; padding-top: 50px;">
     <br><br>
-    <div><h1 style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Witaj Administrator!</h1></div>
-    <br>
-    <div><h2></h2></div>
+    <div><h1 style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Witaj Administrator!</h1></div><br>
 <!--    <a href="/login" style="font-size: 17px; padding: 10px 20px;" class="btn btn-primary" >Zaloguj się</a>-->
-</div>
-<br>
-<div class="container-fluid text-center" style="color: white; width: 100%; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
-    <div id="cardContainer" style="">
-        <div id="card1" class="card" style="width:400px">
+    <div class="container-fluid text-center" style="color: white; width: 98%; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+        <div id="cardContainer" style="">
+            <div id="card1" class="card bg-dark" style="width:400px">
+                <img class="card-img-top" src="https://trenerkatowice.pl/wp-content/uploads/2022/06/DSC_0050.jpg"  style="width:100%">
+                <div class="card-body">
+                    <h4 class="card-title" style="color: white">Trenerzy</h4>
+                    <a href="#" class="btn btn-secondary">Zobacz tabelę</a>
+                    <a href="#" class="btn btn-light">Dodaj trenera</a>
+                </div>
+            </div>
+
+            <div id="card2" class="card bg-dark" style="width:400px">
+                <img class="card-img-top" src="https://trenerkatowice.pl/wp-content/uploads/2022/06/DSC_0050.jpg"  style="width:100%">
+                <div class="card-body">
+                    <h4 class="card-title" style="color: white">Trenerzy</h4>
+                    <a href="#" class="btn btn-secondary">Zobacz tabelę</a>
+                    <a href="#" class="btn btn-light">Dodaj trenera</a>
+                </div>
+            </div><div id="card3" class="card bg-dark" style="width:400px">
             <img class="card-img-top" src="https://trenerkatowice.pl/wp-content/uploads/2022/06/DSC_0050.jpg"  style="width:100%">
             <div class="card-body">
-                <h4 class="card-title">Trenerzy</h4>
-                <a href="#" class="btn btn-primary">Zobacz tabelę</a>
+                <h4 class="card-title" style="color: white">Trenerzy</h4>
+                <a href="#" class="btn btn-secondary">Zobacz tabelę</a>
+                <a href="#" class="btn btn-light">Dodaj trenera</a>
+            </div>
+        </div><div id="card4" class="card bg-dark" style="width:400px">
+            <img class="card-img-top" src="https://trenerkatowice.pl/wp-content/uploads/2022/06/DSC_0050.jpg"  style="width:100%">
+            <div class="card-body">
+                <h4 class="card-title" style="color: white">Trenerzy</h4>
+                <a href="#" class="btn btn-secondary">Zobacz tabelę</a>
+                <a href="#" class="btn btn-light">Dodaj trenera</a>
+            </div>
+        </div><div id="card5" class="card bg-dark" style="width:400px">
+            <img class="card-img-top" src="https://trenerkatowice.pl/wp-content/uploads/2022/06/DSC_0050.jpg"  style="width:100%">
+            <div class="card-body">
+                <h4 class="card-title" style="color: white">Trenerzy</h4>
+                <a href="#" class="btn btn-secondary">Zobacz tabelę</a>
+                <a href="#" class="btn btn-light">Dodaj trenera</a>
             </div>
         </div>
-
-        <div id="card2" class="card" style="width:400px">
-            <div class="card-body">
-                <h4 class="card-title">Jane Doe</h4>
-                <p class="card-text">Some example text some example text. Jane Doe is an architect and engineer</p>
-                <a href="#" class="btn btn-primary">See Profile</a>
-            </div>
-            <img class="card-img-bottom" src="../bootstrap4/img_avatar6.png" alt="Card image" style="width:100%">
-        </div>
-        <div id="card3" class="card" style="width:400px">
-            <div class="card-body">
-                <h4 class="card-title">Jane Doe</h4>
-                <p class="card-text">Some example text some example text. Jane Doe is an architect and engineer</p>
-                <a href="#" class="btn btn-primary">See Profile</a>
-            </div>
-            <img class="card-img-bottom" src="../bootstrap4/img_avatar6.png" alt="Card image" style="width:100%">
-        </div>
-        <div id="card4" class="card" style="width:400px">
-            <div class="card-body">
-                <h4 class="card-title">Jane Doe</h4>
-                <p class="card-text">Some example text some example text. Jane Doe is an architect and engineer</p>
-                <a href="#" class="btn btn-primary">See Profile</a>
-            </div>
-            <img class="card-img-bottom" src="../bootstrap4/img_avatar6.png" alt="Card image" style="width:100%">
-        </div>
-        <div id="card5" class="card" style="width:400px">
-            <div class="card-body">
-                <h4 class="card-title">Jane Doe</h4>
-                <p class="card-text">Some example text some example text. Jane Doe is an architect and engineer</p>
-                <a href="#" class="btn btn-primary">See Profile</a>
-            </div>
-            <img class="card-img-bottom" src="../bootstrap4/img_avatar6.png" alt="Card image" style="width:100%">
         </div>
     </div>
 </div>
+
+
+<br><br><br>
 
 </body>
 </html>
