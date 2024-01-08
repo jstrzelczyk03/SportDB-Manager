@@ -1,68 +1,68 @@
 <!DOCTYPE HTML>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8"/>
-  <title>Strona Głowna</title>
-
-  <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
-
+  <meta charset="UTF-8">
+  <title>Strona Główna</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    body {
+      background: linear-gradient(to right, #3A3A3A, #455A64);
+    }
+  </style>
 </head>
 <body>
 
-
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
-  <div class="container">
-    <a class="navbar-brand" href="/">Klub Lekkoatletyczny</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-            aria-controls="navbarResponsive"
-            aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto">
-
-        <li class="nav-item">
-          <a class="nav-link" th:href="@{/index}">Home</a>
-        </li>
-
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Main
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" th:inline="text" style="color:lightskyblue;">Zalogowany jako <b style="text-transform:capitalize">[[${#httpServletRequest.remoteUser}]]</b></a>
-        </li>
-
-      </ul>
-    </div>
+<!--Start Navigation Bar-->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+  <div class="container-fluid">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/index" style="color: #78909C"><strong>Klub Lekkoatletyczny</strong></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="/index">Strona Główna</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contact">Kontakt</a>
+      </li>
+    </ul>
+    <form class="d-flex">
+      <a href="/login" style="font-size: 16px; padding: 10px 20px;" class="btn btn-primary">Zaloguj się</a>
+    </form>
   </div>
 </nav>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom">
+  <div class="container-fluid d-flex justify-content-start align-items-end">
+    <a class="navbar-brand" href="">
+      <img src="https://www.unipile.com/wp-content/uploads/2022/06/logo-facebook-blanc.png.webp" style="width:40px;" class="rounded-0">
+    </a>
+    <a class="navbar-brand" href="">
+      <img src="https://www.unipile.com/wp-content/uploads/2022/11/logo-messenger-blanc.png.webp" style="width:40px;" class="rounded-0">
+    </a>
+    <a class="navbar-brand" href="">
+      <img src="https://www.unipile.com/wp-content/uploads/2022/09/logo-instagram-blanc-1.png.webp" style="width:40px;" class="rounded-0">
+    </a>
+  </div>
+</nav>
+<!--End Navigation Bar-->
 
-<div class="container">
-  <div class="row">
-
-    <div class="col-md-10 mt-5">
-      <form method="post" th:action="@{/index}">
-        <div class="form-group">
-          <label th:inline="text">Witaj <a style="color:lightskyblue; text-transform:capitalize"><b>[[${#httpServletRequest.remoteUser}]]</b></a> na stronie głównej Klubu Lekkoatletycznego!</label>
-          <div>Jeśli chcesz się wylogować, kilknij przycisk "Wyloguj".</div>
-        </div>
-
-        <button class="btn btn-primary" type="submit" onclick="successfullyLogout()" value="Sign Out">Wyloguj</button>
-      </form>
-    </div>
-
+<div class="container-fluid text-center" style="color: white; background-image: url('https://wallpapercave.com/wp/wp2508257.jpg');height: 55vh; padding-top: 50px;">
+  <br><br><br>
+  <div><h1 style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Witaj na stronie Klubu Lekkoatletycznego!</h1></div>
+  <br>
+  <a href="/login" style="font-size: 17px; padding: 10px 20px;" class="btn btn-primary" >Zaloguj się</a>
+</div>
+<br>
+<div class="container-fluid text-center" style="color: white; width: 110vh; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+  <div>
+    <h2>O nas</h2>
+  </div>
+  <div style="text-align: justify;">
+    Jesteśmy pasjonatami lekkoatletyki z determinacją do osiągania sukcesów. Nasz klub to wspólnota, gdzie rozwijamy umiejętności sportowe, budujemy przyjaźnie i inspirujemy do zdrowego stylu życia. Razem tworzymy historię triumfów i wspieramy się nawzajem na każdym etapie naszych sportowych podróży.
   </div>
 </div>
-
-
-<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
-<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-<script th:src="@{/js/script.js}"></script>
 
 </body>
 </html>

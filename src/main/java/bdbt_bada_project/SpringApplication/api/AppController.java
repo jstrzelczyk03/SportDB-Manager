@@ -1,5 +1,7 @@
 package bdbt_bada_project.SpringApplication.api;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,32 +40,26 @@ public class AppController implements WebMvcConfigurer {
     }
 
     @Controller
-    public class DashboardController
-    {
+    public class DashboardController {
         @RequestMapping("/main")
-        public String defaultAfterLogin
-                (HttpServletRequest request) {
-            if
-            (request.isUserInRole
-                    ("ADMINISTRATOR")) {
+        public String defaultAfterLogin(HttpServletRequest request) {
+            if (request.isUserInRole("ADMINISTRATOR")) {
+                System.out.println("Użytkownik ma rolę ADMINISTRATOR");
                 return "redirect:/mainAdmin";
-            }
-            else if
-            (request.isUserInRole
-                            ("TRENER")) {
+            } else if (request.isUserInRole("TRENER")) {
+                System.out.println("Użytkownik ma rolę TRENER");
                 return "redirect:/mainTrainer";
-            }
-            else if
-            (request.isUserInRole
-                            ("ZAWODNIK")) {
+            } else if (request.isUserInRole("ZAWODNIK")) {
+                System.out.println("Użytkownik ma rolę ZAWODNIK");
                 return "redirect:/mainPlayer";
-            }
-            else
-            {
+            } else {
+                System.out.println("Użytkownik nie ma rozpoznanej roli");
                 return "redirect:/index";
             }
         }
     }
+
+
 
     @RequestMapping(value={"/mainAdmin"})
     public String showAdminPage(Model model) {
