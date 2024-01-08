@@ -35,9 +35,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/", "/index").permitAll()
                 .antMatchers("/resources/static/**").permitAll()
                 .antMatchers("/main").authenticated()
-                .antMatchers("/main_administrator").access("hasRole('ADMINISTRATOR')")
-                .antMatchers("/main_trener").access("hasRole('TRENER')")
-                .antMatchers("/main_zawodnik").access("hasRole('ZAWODNIK')")
+                .antMatchers("/mainAdmin").access("hasRole('ADMINISTRATOR')")
+                .antMatchers("/mainTrainer").access("hasRole('TRENER')")
+                .antMatchers("/mainPlayer").access("hasRole('ZAWODNIK')")
                 .and()
                 .formLogin()
                 .loginPage("/login")
@@ -48,7 +48,5 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .logoutUrl("/index")
                 .logoutSuccessUrl("/index")
                 .permitAll();
-
-
     }
 }

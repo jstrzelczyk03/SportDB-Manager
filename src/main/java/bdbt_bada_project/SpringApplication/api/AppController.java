@@ -27,9 +27,9 @@ public class AppController implements WebMvcConfigurer {
         registry.addViewController("/login").setViewName("login");
         registry.addViewController("/contact").setViewName("contact");
 
-        registry.addViewController("/main_administrator").setViewName("administrator/main_administrator");
-        registry.addViewController("/main_trener").setViewName("trener/main_trener");
-        registry.addViewController("/main_zawodnik").setViewName("zawodnik/main_zawodnik");
+        registry.addViewController("/mainAdmin").setViewName("admin/mainAdmin");
+        registry.addViewController("/mainTrainer").setViewName("trainer/mainTrainer");
+        registry.addViewController("/mainPlayer").setViewName("player/mainPlayer");
 
     }
     @GetMapping("")
@@ -40,25 +40,23 @@ public class AppController implements WebMvcConfigurer {
     @Controller
     public class DashboardController
     {
-        @RequestMapping
-                ("/main"
-                )
+        @RequestMapping("/main")
         public String defaultAfterLogin
                 (HttpServletRequest request) {
             if
             (request.isUserInRole
                     ("ADMINISTRATOR")) {
-                return "redirect:/main_administrator";
+                return "redirect:/mainAdmin";
             }
             else if
             (request.isUserInRole
                             ("TRENER")) {
-                return "redirect:/main_trener";
+                return "redirect:/mainTrainer";
             }
             else if
             (request.isUserInRole
                             ("ZAWODNIK")) {
-                return "redirect:/main_zawodnik";
+                return "redirect:/mainPlayer";
             }
             else
             {
@@ -67,17 +65,17 @@ public class AppController implements WebMvcConfigurer {
         }
     }
 
-    @RequestMapping(value={"/main_administrator"})
-    public String showAdministratorPage(Model model) {
-        return "administrator/main_administrator";
+    @RequestMapping(value={"/mainAdmin"})
+    public String showAdminPage(Model model) {
+        return "admin/mainAdmin";
     }
-    @RequestMapping(value={"/main_trener"})
-    public String showTrenerPage(Model model) {
-        return "trener/main_trener";
+    @RequestMapping(value={"/mainTrainer"})
+    public String showTrainerPage(Model model) {
+        return "trainer/mainTrainer";
     }
-    @RequestMapping(value={"/main_zawodnik"})
-    public String showZawodnikPage(Model model) {
-        return "zawodnik/main_zawodnik";
+    @RequestMapping(value={"/mainPlayer"})
+    public String showPlayerPage(Model model) {
+        return "player/mainPlayer";
     }
 
 }
