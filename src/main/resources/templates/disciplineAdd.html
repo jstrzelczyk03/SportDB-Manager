@@ -74,8 +74,14 @@
 
 <br><br><br>
 <div class="container text-center">
-    <div th:if="${discipline.disciplineId == null}"><h1>Dodaj nową dyscyplinę</h1> </div>
-    <div th:unless="${discipline.disciplineId == null}"><h1>Edytuj dyscyplinę</h1> </div>
+    <div style="display: flex; align-items: center; justify-content: space-between;">
+        <a class="btn btn-dark" href="javascript:history.back()">Wstecz</a>
+        <div style="display: flex; align-items: center;">
+            <div th:if="${discipline.disciplineId == null}" style="text-align: center;"><h1 class="text-center">Dodaj nową dyscyplinę</h1></div>
+            <div th:unless="${discipline.disciplineId == null}" style="text-align: center;"><h1 class="text-center">Edytuj dyscyplinę</h1></div>
+        </div>
+        <a class="btn btn-primary" style="visibility: hidden">Wstecz</a>
+    </div>
     <form th:action="@{/disciplines/save}" th:object="${discipline}" method="post" style="max-width: 500px; margin: 0 auto; color: white">
         <input type="hidden" th:field="*{disciplineId}" th:value="${discipline.disciplineId}" />
         <div class="m-3">

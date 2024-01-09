@@ -74,8 +74,14 @@
 
 <br><br><br>
 <div class="container text-center">
-    <div th:if="${trainer.trainerId == null}"><h1>Dodaj nowego trenera</h1> </div>
-    <div th:unless="${trainer.trainerId == null}"><h1>Edytuj trenera</h1> </div>
+    <div style="display: flex; align-items: center; justify-content: space-between;">
+        <a class="btn btn-dark" href="javascript:history.back()">Wstecz</a>
+        <div style="display: flex; align-items: center;">
+            <div th:if="${trainer.trainerId == null}" style="text-align: center;"><h1 class="text-center">Dodaj nowego trenera</h1></div>
+            <div th:unless="${trainer.trainerId == null}" style="text-align: center;"><h1 class="text-center">Edytuj trenera</h1></div>
+        </div>
+        <a class="btn btn-primary" style="visibility: hidden">Wstecz</a>
+    </div>
     <form th:action="@{/trainers/save}" th:object="${trainer}" method="post" style="max-width: 500px; margin: 0 auto; color: white">
         <input type="hidden" th:field="*{trainerId}" th:value="${trainer.trainerId}" />
         <div class="m-3">

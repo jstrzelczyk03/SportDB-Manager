@@ -75,8 +75,14 @@
 
 <br><br><br>
 <div class="container text-center">
-    <div th:if="${address.addressId == null}"><h1>Dodaj nowy adres</h1> </div>
-    <div th:unless="${address.addressId == null}"><h1>Edytuj adres</h1> </div>
+    <div style="display: flex; align-items: center; justify-content: space-between;">
+        <a class="btn btn-dark" href="javascript:history.back()">Wstecz</a>
+        <div style="display: flex; align-items: center;">
+            <div th:if="${address.addressId == null}" style="text-align: center;"><h1 class="text-center">Dodaj nowy adres</h1></div>
+            <div th:unless="${address.addressId == null}" style="text-align: center;"><h1 class="text-center">Edytuj adres</h1></div>
+        </div>
+        <a class="btn btn-primary" style="visibility: hidden">Wstecz</a>
+    </div>
     <form th:action="@{/addresses/save}" th:object="${address}" method="post" style="max-width: 500px; margin: 0 auto; color: white">
         <input type="hidden" th:field="*{addressId}" th:value="${address.addressId}" />
         <div class="m-3">
