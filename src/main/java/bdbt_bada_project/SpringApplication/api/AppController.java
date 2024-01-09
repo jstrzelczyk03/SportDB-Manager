@@ -1,7 +1,5 @@
 package bdbt_bada_project.SpringApplication.api;
 
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,15 +8,6 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.servlet.http.HttpServletRequest;
-
-//@Controller
-//public class AppController {
-//    @GetMapping("")
-//    public String viewHomePage(){
-//        return "index";
-//    }
-//
-//}
 
 @Controller
 public class AppController implements WebMvcConfigurer {
@@ -58,8 +47,6 @@ public class AppController implements WebMvcConfigurer {
             }
         }
     }
-
-
 
     @RequestMapping(value={"/mainAdmin"})
     public String showAdminPage(Model model) {
