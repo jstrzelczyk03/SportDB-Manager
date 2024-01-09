@@ -24,8 +24,33 @@
             <li class="nav-item">
                 <a class="nav-link active" href="/index">Strona Główna</a>
             </li>
+            <form th:if="${#httpServletRequest.remoteUser == 'administrator'}" class="d-flex">
+                <a class="nav-link" href="/mainAdmin">Administrator</a>
+            </form>
+
+            <!-- Second form for TRENER -->
+            <form th:if="${#httpServletRequest.remoteUser == 'trener'}" class="d-flex">
+                <a class="nav-link" href="/mainTrainer">Trener</a>
+            </form>
+
+            <!-- Third form for PLAYER -->
+            <form th:if="${#httpServletRequest.remoteUser == 'zawodnik'}" class="d-flex">
+                <a class="nav-link" href="/mainPlayer">Zawodnik</a>
+            </form>
+
+
             <li class="nav-item">
                 <a class="nav-link" href="/contact">Kontakt</a>
+            </li>
+            <li class="nav-item dropdown" th:if="${#httpServletRequest.remoteUser != null}">
+                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">Tabele</a>
+                <ul class="dropdown-menu bg-dark">
+                    <li th:if="${#httpServletRequest.remoteUser == 'administrator'}"><a class="dropdown-item" href="/disciplines" style="color: white">Dyscypliny</a></li>
+                    <li th:if="${#httpServletRequest.remoteUser == 'administrator' || #httpServletRequest.remoteUser == 'trener'}"><a class="dropdown-item" href="/places" style="color: white">Obiekty</a></li>
+                    <li th:if="${#httpServletRequest.remoteUser == 'administrator' || #httpServletRequest.remoteUser == 'trener' || #httpServletRequest.remoteUser == 'zawodnik'}"><a class="dropdown-item" href="/trainers" style="color: white">Trenerzy</a></li>
+                    <li th:if="${#httpServletRequest.remoteUser == 'administrator' || #httpServletRequest.remoteUser == 'trener' || #httpServletRequest.remoteUser == 'zawodnik'}"><a class="dropdown-item" href="/players" style="color: white">Zawodnicy</a></li>
+                    <li th:if="${#httpServletRequest.remoteUser == 'administrator' || #httpServletRequest.remoteUser == 'trener' || #httpServletRequest.remoteUser == 'zawodnik'}"><a class="dropdown-item" href="/addresses" style="color: white">Adresy</a></li>
+                </ul>
             </li>
         </ul>
         <ul class="navbar-nav">
