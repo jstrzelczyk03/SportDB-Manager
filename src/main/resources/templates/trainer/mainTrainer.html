@@ -1,71 +1,136 @@
 <!DOCTYPE HTML>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8">
     <title>Strona Główna Trenera</title>
-
-    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            background: linear-gradient(to right, #3A3A3A, #455A64);
+        }
+        #cardContainer {
+            display: flex;
+            justify-content: space-between; /* lub inna wartość, aby dostosować odstępy między kartami */
+        }
+    </style>
 </head>
 <body>
 
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
-    <div class="container">
-        <a class="navbar-brand" href="/">Klub Lekkoatletyczny</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/index}">Home</a>
-                </li>
-
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Main
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" th:inline="text" style="color:lightskyblue;">Zalogowany jako <b
-                            style="text-transform:capitalize">[[${#httpServletRequest.remoteUser}]]</b></a>
-                </li>
-
-            </ul>
-        </div>
+<!--Start Navigation Bar-->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+    <div class="container-fluid">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/index" style="color: #78909C"><strong>Klub Lekkoatletyczny</strong></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="/mainAdmin">Strona Główna</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/contact">Kontakt</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">Tabele</a>
+                <ul class="dropdown-menu bg-dark">
+                    <li><a class="dropdown-item" href="/disciplines" style="color: white">Dyscypliny</a></li>
+                    <li><a class="dropdown-item" href="/places" style="color: white">Obiekty</a></li>
+                    <li><a class="dropdown-item" href="/trainers" style="color: white">Trenerzy</a></li>
+                    <li><a class="dropdown-item" href="/players" style="color: white">Zawodnicy</a></li>
+                    <li><a class="dropdown-item" href="/addresses" style="color: white">Adresy</a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <form class="d-flex" method="post" th:action="@{/index}">
+                <li class="nav-item"><a class="nav-link" href="/index" style="color: #78909C">Zalogowany jako <b style="text-transform:capitalize">[[${#httpServletRequest.remoteUser}]]</b></a></li>
+                <button class="btn btn-primary" type="submit" onclick="successfullyLogout()" value="Sign Out">Wyloguj</button>
+            </form>
+        </ul>
     </div>
 </nav>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom">
+    <div class="container-fluid d-flex justify-content-start align-items-end">
+        <a class="navbar-brand" href="">
+            <img src="https://www.unipile.com/wp-content/uploads/2022/06/logo-facebook-blanc.png.webp" style="width:40px;" class="rounded-0">
+        </a>
+        <a class="navbar-brand" href="">
+            <img src="https://www.unipile.com/wp-content/uploads/2022/11/logo-messenger-blanc.png.webp" style="width:40px;" class="rounded-0">
+        </a>
+        <a class="navbar-brand" href="">
+            <img src="https://www.unipile.com/wp-content/uploads/2022/09/logo-instagram-blanc-1.png.webp" style="width:40px;" class="rounded-0">
+        </a>
+    </div>
+</nav>
+<!--End Navigation Bar-->
 
-<div class="container">
-    <div class="row">
+<div class="container-fluid text-center" style="color: white ;height: 35vh; padding-top: 50px;">
+    <br><br>
+    <div><h1 style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Witaj Trener!</h1></div><br>
+    <div class="container-fluid text-center" style="color: white; width: 98%; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+        <div id="cardContainer" style="">
 
-        <div class="col-md-10 mt-5">
-            <form method="post" th:action="@{/index}">
-                <div class="form-group">
-                    <label style="font-size:30px" th:inline="text">Witaj <a
-                            style="color:lightskyblue; text-transform:capitalize"><b>[[${#httpServletRequest.remoteUser}]]</b></a>
-                        na stronie głównej Klubu Lekkoatletycznego!</label>
-                    <div style="font-size:20px">Jeśli chcesz się wylogować, kilknij przycisk "Wyloguj".</div>
+            <div id="card1" class="card bg-dark" style="width:400px">
+                <img class="card-img-top" src="https://ccms.wip.pl/uploads/files/photos/89ee304620039cf31f19ccc4cd9eb217fca8a6f8_1.png"  style="width:100%; height: 150px">
+                <div class="card-body">
+                    <h4 class="card-title" style="color: white">Dyscypliny</h4>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <a href="disciplines" class="btn btn-secondary" style="flex: 1; padding: 5px 15px;">Zobacz tabelę</a>
+                        <a href="disciplines/add" class="btn btn-light" style="flex: 1; padding: 5px 12px;">Dodaj dyscyplinę</a>
+                    </div>
                 </div>
+            </div>
 
-                <button class="btn btn-primary" type="submit" onclick="successfullyLogout()" value="Sign Out">Wyloguj
-                </button>
-            </form>
+            <div id="card2" class="card bg-dark" style="width:400px">
+                <img class="card-img-top" src="https://www.hotelatrium.eu/wh/960-720/img/content/articles/702/1-sport_1.jpg"  style="width:100%; height: 150px">
+                <div class="card-body">
+                    <h4 class="card-title" style="color: white">Obiekty</h4>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <a href="places" class="btn btn-secondary" style="flex: 1; padding: 5px 15px;">Zobacz tabelę</a>
+                        <a href="places/add" class="btn btn-light" style="flex: 1; padding: 5px 12px;">Dodaj obiekt</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="card3" class="card bg-dark" style="width:400px">
+                <img class="card-img-top" src="https://trenerkatowice.pl/wp-content/uploads/2022/06/DSC_0050.jpg"  style="width:100%; height: 150px">
+                <div class="card-body">
+                    <h4 class="card-title" style="color: white">Trenerzy</h4>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <a href="trainers" class="btn btn-secondary" style="flex: 1; padding: 5px 15px;">Zobacz tabelę</a>
+                        <a href="trainers/add" class="btn btn-light" style="flex: 1; padding: 5px 12px;">Dodaj trenera</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="card4" class="card bg-dark" style="width:400px">
+                <img class="card-img-top" src="https://rewallution.pl/motives/11/117314405_s.jpg"  style="width:100%; height: 150px">
+                <div class="card-body">
+                    <h4 class="card-title" style="color: white">Zawodnicy</h4>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <a href="players" class="btn btn-secondary" style="flex: 1; padding: 5px 15px;">Zobacz tabelę</a>
+                        <a href="players/add" class="btn btn-light" style="flex: 1; padding: 5px 12px;">Dodaj zawodnika</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="card5" class="card bg-dark" style="width:400px">
+                <img class="card-img-top" src="https://www.tapetus.pl/obrazki/n/131756_domy-nowoczesne-osiedle.jpg"  style="width:100%; height: 150px">
+                <div class="card-body">
+                    <h4 class="card-title" style="color: white">Adresy</h4>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <a href="disciplines" class="btn btn-secondary" style="flex: 1; padding: 5px 15px;">Zobacz tabelę</a>
+                        <a href="disciplines/add" class="btn btn-light" style="flex: 1; padding: 5px 12px;">Dodaj adres</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
-
     </div>
 </div>
-
-
-<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
-<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-<script th:src="@{/js/script.js}"></script>
+<br><br><br>
 
 </body>
 </html>

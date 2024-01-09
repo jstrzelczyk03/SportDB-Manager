@@ -1,0 +1,14 @@
+ADMINISTRATOR
+wszystkie uprawnienia
+
+TRENER
+Trenerzy - przeglądanie, dodawanie, edycja, usuwanie
+Zawodnicy - przeglądanie, dodawanie, edycja, usuwanie
+Adresy - przeglądanie, dodawanie, edycja, usuwanie
+Dyscypliny - przeglądanie, dodawanie, edycja, usuwanie
+
+
+ZAWODNIK
+Zawodnicy - przeglądanie, dodawanie, edycja, usuwanie
+Adresy - przeglądanie, dodawanie, edycja, usuwanie
+Dyscypliny - przeglądanie
