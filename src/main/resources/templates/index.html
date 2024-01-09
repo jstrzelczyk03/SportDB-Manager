@@ -27,18 +27,12 @@
             <form th:if="${#httpServletRequest.remoteUser == 'administrator'}" class="d-flex">
                 <a class="nav-link" href="/mainAdmin">Administrator</a>
             </form>
-
-            <!-- Second form for TRENER -->
             <form th:if="${#httpServletRequest.remoteUser == 'trener'}" class="d-flex">
                 <a class="nav-link" href="/mainTrainer">Trener</a>
             </form>
-
-            <!-- Third form for PLAYER -->
             <form th:if="${#httpServletRequest.remoteUser == 'zawodnik'}" class="d-flex">
                 <a class="nav-link" href="/mainPlayer">Zawodnik</a>
             </form>
-
-
             <li class="nav-item">
                 <a class="nav-link" href="/contact">Kontakt</a>
             </li>
@@ -56,20 +50,12 @@
         <ul class="navbar-nav">
             <form method="post" th:action="@{/index}" th:if="${#httpServletRequest.remoteUser != null}" class="d-flex">
                 <li class="nav-item"><a class="nav-link" href="/index" style="color: #78909C">Zalogowany jako <b style="text-transform:capitalize">[[${#httpServletRequest.remoteUser}]]</b></a></li>
-                <button class="btn btn-primary" type="submit" onclick="successfullyLogout()" value="Sign Out">Wyloguj</button>
+                <button class="btn btn-primary" type="submit" onclick="successfullyLogout()" value="Sign Out" style="font-size: 16px; padding: 7px 20px;">Wyloguj</button>
             </form>
             <form th:unless="${#httpServletRequest.remoteUser != null}" class="d-flex">
-                <a href="/login" style="font-size: 16px; padding: 10px 20px;" class="btn btn-primary">Zaloguj się</a>
+                <a href="/login" style="font-size: 16px; padding: 7px 20px;" class="btn btn-primary">Zaloguj</a>
             </form>
         </ul>
-
-<!--        <form class="d-flex">-->
-<!--            <a href="/login" style="font-size: 16px; padding: 10px 20px;" class="btn btn-primary">Zaloguj się</a>-->
-<!--        </form>-->
-<!--        <form class="d-flex" method="post" th:action="@{/index}">-->
-<!--            <li class="nav-item"><a class="nav-link" href="/index" style="color: #78909C">Zalogowany jako <b style="text-transform:capitalize">[[${#httpServletRequest.remoteUser}]]</b></a></li>-->
-<!--            <button class="btn btn-primary" type="submit" onclick="successfullyLogout()" value="Sign Out">Wyloguj</button>-->
-<!--        </form>-->
     </div>
 </nav>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom">
