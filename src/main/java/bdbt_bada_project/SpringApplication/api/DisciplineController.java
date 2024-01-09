@@ -3,6 +3,7 @@ package bdbt_bada_project.SpringApplication.api;
 import bdbt_bada_project.SpringApplication.entity.Discipline;
 import bdbt_bada_project.SpringApplication.repository.DisciplineRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,8 +39,14 @@ public class DisciplineController {
     }
     @GetMapping("/disciplines/delete/{disciplineId}")
     public String deleteDiscipline(@PathVariable("disciplineId") Integer disciplineId, Model model){
-        disciplineRepo.deleteById(disciplineId);
-        return "redirect:/disciplines";
+        try{
+            disciplineRepo.deleteById(disciplineId);
+            return "redirect:/disciplines";
+        }
+        catch (DataIntegrityViolationException e) {
+            model.addAttribute("error", "Naruszono więzy spójności");
+            return "errors/ora02292";
+        }
     }
 
     @PostMapping("/disciplines/save")

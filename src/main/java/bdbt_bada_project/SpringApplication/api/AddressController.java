@@ -3,6 +3,9 @@ package bdbt_bada_project.SpringApplication.api;
 import bdbt_bada_project.SpringApplication.entity.Address;
 import bdbt_bada_project.SpringApplication.repository.AddressRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,8 +42,14 @@ public class AddressController {
 
     @GetMapping("/addresses/delete/{addressId}")
     public String deleteAddress(@PathVariable("addressId") Integer addressId, Model model){
-        addressRepo.deleteById(addressId);
-        return "redirect:/addresses";
+        try{
+            addressRepo.deleteById(addressId);
+            return "redirect:/addresses";
+        }
+        catch (DataIntegrityViolationException e) {
+            model.addAttribute("error", "Naruszono więzy spójności");
+            return "errors/ora02292";
+        }
     }
 
     @PostMapping("/addresses/save")
