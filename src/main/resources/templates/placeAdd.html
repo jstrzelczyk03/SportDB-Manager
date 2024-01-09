@@ -75,7 +75,7 @@
 <br><br><br>
 <div class="container text-center">
     <div style="display: flex; align-items: center; justify-content: space-between;">
-        <a class="btn btn-dark" href="javascript:history.back()">Wstecz</a>
+        <a class="btn btn-dark" type="submit" href="/places">Wstecz</a>
         <div style="display: flex; align-items: center;">
             <div th:if="${place.placeId == null}" style="text-align: center;"><h1 class="text-center">Dodaj nowy obiekt</h1></div>
             <div th:unless="${place.placeId == null}" style="text-align: center;"><h1 class="text-center">Edytuj obiekt</h1></div>

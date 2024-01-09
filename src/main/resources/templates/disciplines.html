@@ -78,9 +78,17 @@
 <br><br>
 <div class="container mt-3">
     <div style="display: flex; align-items: center;">
-        <a class="btn btn-dark" href="javascript:history.back()">Wstecz</a>
+        <form th:if="${#httpServletRequest.remoteUser == 'administrator'}" method="post" th:action="@{/mainAdmin}">
+            <button class="btn btn-dark" type="submit">Wstecz</button>
+        </form>
+        <form th:if="${#httpServletRequest.remoteUser == 'trener'}" method="post" th:action="@{/mainTrainer}">
+            <button class="btn btn-dark" type="submit">Wstecz</button>
+        </form>
+        <form th:if="${#httpServletRequest.remoteUser == 'zawodnik'}" method="post" th:action="@{/mainPlayer}">
+            <button class="btn btn-dark" type="submit">Wstecz</button>
+        </form>
         <h1 class="text-center" style="flex: 1; text-align: center;">Lista Dyscyplin</h1>
-        <a class="btn btn-primary" href="" style="visibility: hidden">Wstecz</a>
+        <button class="btn btn-primary" style="visibility: hidden">Wstecz</button>
     </div>
     <div class="table-responsive">
         <table class="table table-dark table-striped">

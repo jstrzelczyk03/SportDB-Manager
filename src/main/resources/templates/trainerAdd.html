@@ -75,7 +75,7 @@
 <br><br><br>
 <div class="container text-center">
     <div style="display: flex; align-items: center; justify-content: space-between;">
-        <a class="btn btn-dark" href="javascript:history.back()">Wstecz</a>
+        <a class="btn btn-dark" type="submit" href="/trainers">Wstecz</a>
         <div style="display: flex; align-items: center;">
             <div th:if="${trainer.trainerId == null}" style="text-align: center;"><h1 class="text-center">Dodaj nowego trenera</h1></div>
             <div th:unless="${trainer.trainerId == null}" style="text-align: center;"><h1 class="text-center">Edytuj trenera</h1></div>
