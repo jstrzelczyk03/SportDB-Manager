@@ -35,12 +35,26 @@
 <div class="container" style="color: white">
     <div class="row">
         <div class="col-md-4 mt-5">
-            <form method="post" th:action="@{/index}">
+            <form th:if="${#httpServletRequest.remoteUser == 'administrator'}" method="post" th:action="@{/mainAdmin}">
                 <div class="form-group">
                     <div><b><p style="font-size:45px">Błąd</p></b></div>
-                    <div><p style="font-size:28px">504 – Przekroczono limit czasu serwera</p></div>
+                    <div><p style="font-size:28px">504 - Przekroczono limit czasu serwera</p></div>
                 </div>
-                <button class="btn btn-danger" type="submit" value="Sign In">Wróć na stronę startową</button>
+                <button class="btn btn-danger" type="submit" value="Sign In">Wróć na stronę administratora</button>
+            </form>
+            <form th:if="${#httpServletRequest.remoteUser == 'zawodnik'}" method="post" th:action="@{/mainPlayer}">
+                <div class="form-group">
+                    <div><b><p style="font-size:45px">Błąd</p></b></div>
+                    <div><p style="font-size:28px">504 - Przekroczono limit czasu serwera</p></div>
+                </div>
+                <button class="btn btn-danger" type="submit" value="Sign In">Wróć na stronę zawodnika</button>
+            </form>
+            <form th:if="${#httpServletRequest.remoteUser == 'trener'}" method="post" th:action="@{/mainTrainer}">
+                <div class="form-group">
+                    <div><b><p style="font-size:45px">Błąd</p></b></div>
+                    <div><p style="font-size:28px">504 - Przekroczono limit czasu serwera</p></div>
+                </div>
+                <button class="btn btn-danger" type="submit" value="Sign In">Wróć na stronę trenera</button>
             </form>
         </div>
     </div>

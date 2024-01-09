@@ -40,6 +40,54 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/mainAdmin").access("hasRole('ADMINISTRATOR')")
                 .antMatchers("/mainTrainer").access("hasRole('TRENER')")
                 .antMatchers("/mainPlayer").access("hasRole('ZAWODNIK')")
+
+
+
+                .antMatchers("/disciplines").access("hasAnyRole('ADMINISTRATOR', 'TRENER', 'ZAWODNIK' )")
+                .antMatchers("/disciplines/edit/*").access("hasAnyRole('ADMINISTRATOR', 'TRENER')")
+                .antMatchers("/disciplines/delete/*").access("hasAnyRole('ADMINISTRATOR', 'TRENER')")
+                .antMatchers("/disciplines/add").access("hasAnyRole('ADMINISTRATOR', 'TRENER')")
+
+                .antMatchers("/addresses").access("hasAnyRole('ADMINISTRATOR', 'TRENER', 'ZAWODNIK')")
+                .antMatchers("/addresses/edit/*").access("hasAnyRole('ADMINISTRATOR', 'TRENER', 'ZAWODNIK')")
+                .antMatchers("/addresses/delete/*").access("hasAnyRole('ADMINISTRATOR', 'TRENER', 'ZAWODNIK')")
+                .antMatchers("/addresses/add").access("hasAnyRole('ADMINISTRATOR', 'TRENER', 'ZAWODNIK')")
+
+
+                .antMatchers("/places").access("hasAnyRole('ADMINISTRATOR')")
+                .antMatchers("/places/edit/*").access("hasAnyRole('ADMINISTRATOR')")
+                .antMatchers("/places/delete/*").access("hasAnyRole('ADMINISTRATOR')")
+                .antMatchers("/places/add").access("hasAnyRole('ADMINISTRATOR')")
+
+                .antMatchers("/trainers").access("hasAnyRole('ADMINISTRATOR', 'TRENER')")
+                .antMatchers("/trainers/edit/*").access("hasAnyRole('ADMINISTRATOR', 'TRENER')")
+                .antMatchers("/trainers/delete/*").access("hasAnyRole('ADMINISTRATOR', 'TRENER')")
+                .antMatchers("/trainers/add").access("hasAnyRole('ADMINISTRATOR', 'TRENER')")
+
+                .antMatchers("/players").access("hasAnyRole('ADMINISTRATOR', 'TRENER', 'ZAWODNIK')")
+                .antMatchers("/players/edit/*").access("hasAnyRole('ADMINISTRATOR', 'TRENER', 'ZAWODNIK')")
+                .antMatchers("/players/delete/*").access("hasAnyRole('ADMINISTRATOR', 'TRENER', 'ZAWODNIK')")
+                .antMatchers("/players/add").access("hasAnyRole('ADMINISTRATOR', 'TRENER', 'ZAWODNIK')")
+
+
+                /*
+                ADMINISTRATOR
+                wszystkie uprawnienia
+
+                TRENER
+                Trenerzy - przeglądanie, dodawanie, edycja, usuwanie
+                Zawodnicy - przeglądanie, dodawanie, edycja, usuwanie
+                Adresy - przeglądanie, dodawanie, edycja, usuwanie
+                Dyscypliny - przeglądanie, dodawanie, edycja, usuwanie
+
+
+                ZAWODNIK
+                Zawodnicy - przeglądanie, dodawanie, edycja, usuwanie
+                Adresy - przeglądanie, dodawanie, edycja, usuwanie
+                Dyscypliny - przeglądanie
+                 */
+
+
                 .and()
                 .formLogin()
                 .loginPage("/login")
