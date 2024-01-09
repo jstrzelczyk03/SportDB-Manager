@@ -69,7 +69,7 @@
             <img src="https://www.unipile.com/wp-content/uploads/2022/09/logo-instagram-blanc-1.png.webp" style="width:40px;" class="rounded-0">
         </a>
     </div>
-    <div class="container-fluid d-flex justify-content-end align-items-end">
+    <div class="container-fluid d-flex justify-content-end align-items-end" th:if="${#httpServletRequest.remoteUser == 'administrator' || #httpServletRequest.remoteUser == 'trener'}">
         <a href="/disciplines/add" style="font-size: 17px; padding: 10px 50px;" class="btn btn-light" >Dodaj nową dyscyplinę</a>
     </div>
 </nav>
@@ -89,8 +89,8 @@
             <th>Nazwa Dyscypliny</th>
             <th>Kategoria</th>
             <th>Opis</th>
-            <th></th>
-            <th></th>
+            <th th:if="${#httpServletRequest.remoteUser == 'administrator' || #httpServletRequest.remoteUser == 'trener'}"></th>
+            <th th:if="${#httpServletRequest.remoteUser == 'administrator' || #httpServletRequest.remoteUser == 'trener'}"></th>
             </thead>
             <tbody>
             <th:block th:each="discipline : ${disciplinesList}">
@@ -99,8 +99,8 @@
                     <td>[[${discipline.disciplineName}]]</td>
                     <td>[[${discipline.category}]]</td>
                     <td>[[${discipline.description}]]</td>
-                    <td><a class="btn btn-secondary" th:href="@{'/disciplines/edit/' + ${discipline.disciplineId}}">Edytuj</a></td>
-                    <td><a class="btn btn-light" th:href="@{'/disciplines/delete/' + ${discipline.disciplineId}}">Usuń</a></td>
+                    <td th:if="${#httpServletRequest.remoteUser == 'administrator' || #httpServletRequest.remoteUser == 'trener'}"><a class="btn btn-secondary" th:href="@{'/disciplines/edit/' + ${discipline.disciplineId}}">Edytuj</a></td>
+                    <td th:if="${#httpServletRequest.remoteUser == 'administrator' || #httpServletRequest.remoteUser == 'trener'}"><a class="btn btn-light" th:href="@{'/disciplines/delete/' + ${discipline.disciplineId}}">Usuń</a></td>
                 </tr>
             </th:block>
             </tbody>
