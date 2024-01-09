@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.Objects;
 import javax.persistence.*;
 
@@ -28,13 +30,13 @@ public class Player {
     private String surname;
 
     @Column(name = "DATA_URODZENIA", nullable = false)
-    private String birthDate;
+    private LocalDate birthDate;
 
     @Column(name = "PLEC", nullable = false)
     private String sex;
 
     @Column(name = "DATA_DOLACZENIA", nullable = false)
-    private String joinDate;
+    private LocalDate joinDate;
 
     @Column(name = "TELEFON", nullable = false)
     private String phone;

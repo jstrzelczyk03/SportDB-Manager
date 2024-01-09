@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Getter
@@ -28,7 +29,7 @@ public class Trainer {
     private String surname;
 
     @Column(name = "DATA_URODZENIA", nullable = false)
-    private String birthDate;
+    private LocalDate birthDate;
 
     @Column(name = "PESEL", nullable = false, length = 11)
     private String pesel;
@@ -40,7 +41,7 @@ public class Trainer {
     private String accountNumber;
 
     @Column(name = "DATA_ZATRUDNIENIA", nullable = false)
-    private String hireDate;
+    private LocalDate hireDate;
 
     @Column(name = "TELEFON", nullable = false)
     private String phone;
