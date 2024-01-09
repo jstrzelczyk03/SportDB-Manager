@@ -57,7 +57,7 @@
             <input type="password" class="form-control" id="password" placeholder="Wpisz hasło" name="password" autocomplete="off" style="width: 70vh">
             <label for="password">Hasło</label>
         </div>
-        <div th:if="${param.error}" style="color:firebrick; margin-bottom:15px">
+        <div th:if="${param.error}" style="color:red; margin-bottom:15px">
             BŁĄD: Niepoprawny login lub hasło!
         </div>
         <button type="submit" class="btn btn-primary" value="Sign In" style="font-size: 16px; padding: 7px 20px;">Zaloguj</button>
