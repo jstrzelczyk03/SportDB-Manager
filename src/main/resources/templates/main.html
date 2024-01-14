@@ -41,7 +41,7 @@
         <ul class="dropdown-menu bg-dark">
           <li th:if="${#httpServletRequest.remoteUser == 'administrator' || #httpServletRequest.remoteUser == 'trener' || #httpServletRequest.remoteUser == 'zawodnik'}"><a class="dropdown-item" href="/disciplines" style="color: white">Dyscypliny</a></li>
           <li th:if="${#httpServletRequest.remoteUser == 'administrator'}"><a class="dropdown-item" href="/places" style="color: white">Obiekty</a></li>
-          <li th:if="${#httpServletRequest.remoteUser == 'administrator' || #httpServletRequest.remoteUser == 'trener'}"><a class="dropdown-item" href="/trainers" style="color: white">Trenerzy</a></li>w
+          <li th:if="${#httpServletRequest.remoteUser == 'administrator' || #httpServletRequest.remoteUser == 'trener'}"><a class="dropdown-item" href="/trainers" style="color: white">Trenerzy</a></li>
           <li th:if="${#httpServletRequest.remoteUser == 'administrator' || #httpServletRequest.remoteUser == 'trener' || #httpServletRequest.remoteUser == 'zawodnik'}"><a class="dropdown-item" href="/players" style="color: white">Zawodnicy</a></li>
           <li th:if="${#httpServletRequest.remoteUser == 'administrator' || #httpServletRequest.remoteUser == 'trener' || #httpServletRequest.remoteUser == 'zawodnik'}"><a class="dropdown-item" href="/addresses" style="color: white">Adresy</a></li>
         </ul>
