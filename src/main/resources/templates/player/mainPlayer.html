@@ -19,6 +19,11 @@
             margin-bottom: 20px;
         }
     </style>
+    <script>
+        var currentPath = window.location.pathname;
+        var newUrl = window.location.href.replace(currentPath, "/");
+        history.replaceState({}, document.title, newUrl);
+    </script>
 </head>
 <body>
 
@@ -123,6 +128,68 @@
     </div>
 </div>
 <br><br><br>
+
+
+
+
+
+
+
+<div class="modal fade" id="timeoutModal" tabindex="-1" role="dialog" aria-labelledby="timeoutModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content bg-dark text-white">
+            <div class="modal-header">
+                <h5 class="modal-title" id="timeoutModalLabel">Przekroczono czas bezczynności na stronie</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Chcesz zostać na stronie?
+            </div>
+            <div class="modal-footer">
+                <form class="form-inline my-2 my-lg-0" method="post" th:action="@{/logout}">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Wyloguj</button>
+                </form>
+                <button type="button" class="btn btn-primary" onclick="resetTimer(); $('#timeoutModal').modal('hide');">Zostań</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/script.js}"></script>
+
+
+
+
+<script>
+    var timeout;
+
+    function startTimer() {
+        timeout = setTimeout(showTimeoutModal, 40000);
+    }
+
+    function resetTimer() {
+        clearTimeout(timeout);
+        startTimer();
+    }
+
+    function logout() {
+        window.location.href = '/logout';
+    }
+
+    function showTimeoutModal() {
+        $('#timeoutModal').modal('show');
+    }
+
+    document.addEventListener('mousemove', resetTimer);
+    document.addEventListener('keypress', resetTimer);
+
+    startTimer();
+</script>
 
 </body>
 </html>
