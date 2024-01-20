@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -30,13 +31,15 @@ public class Player {
     private String surname;
 
     @Column(name = "DATA_URODZENIA", nullable = false)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthDate;
 
     @Column(name = "PLEC", nullable = false)
     private String sex;
 
     @Column(name = "DATA_DOLACZENIA", nullable = false)
-    private LocalDate joinDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date joinDate;
 
     @Column(name = "TELEFON", nullable = false)
     private String phone;

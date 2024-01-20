@@ -4,9 +4,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.Objects;
 
 @Getter
@@ -29,6 +31,7 @@ public class Trainer {
     private String surname;
 
     @Column(name = "DATA_URODZENIA", nullable = false)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthDate;
 
     @Column(name = "PESEL", nullable = false, length = 11)
@@ -41,6 +44,7 @@ public class Trainer {
     private String accountNumber;
 
     @Column(name = "DATA_ZATRUDNIENIA", nullable = false)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate hireDate;
 
     @Column(name = "TELEFON", nullable = false)
