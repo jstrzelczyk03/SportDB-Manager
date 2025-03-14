@@ -39,7 +39,7 @@ public class Player {
 
     @Column(name = "DATA_DOLACZENIA", nullable = false)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date joinDate;
+    private LocalDate joinDate;
 
     @Column(name = "TELEFON", nullable = false)
     private String phone;
